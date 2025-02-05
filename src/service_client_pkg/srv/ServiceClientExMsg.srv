@@ -1,0 +1,6 @@
+string mode_request
+string state_request
+---
+string previous_mode
+string current_mode
+string current_state

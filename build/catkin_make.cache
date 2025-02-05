@@ -1,0 +1,2 @@
+rov_test_pkg
+-DCATKIN_DEVEL_PREFIX=/home/chao/catkin_rov/devel -DCMAKE_INSTALL_PREFIX=/home/chao/catkin_rov/install -G Unix Makefiles

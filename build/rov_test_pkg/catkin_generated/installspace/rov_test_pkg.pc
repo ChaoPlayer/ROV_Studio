@@ -1,0 +1,8 @@
+prefix=/home/chao/catkin_rov/install
+
+Name: rov_test_pkg
+Description: Description of rov_test_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
