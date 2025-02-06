@@ -1,8 +1,10 @@
 #include<ros/ros.h>
 #include<mavros_msgs/Heartbeat.h>
 #include<mavros_msgs/State.h>
+#include<string>
 
-int mode_rec,status_rec;
+int mode_rec;
+string status_rec;
 
 ros::Publisher heartbeat_pb;;
 ros::Subsriber receiver;
@@ -19,9 +21,10 @@ void sendheartbeat(const mavros_msgs::State::ConstPtr& msg,int status)
     heartbeat_pb.pubish(heartbeat_msg);
 }
 
-void rec_func(const )
+void rec_func(const mavros_msgs::State::ConstPtr& msg)
 {
-
+    status_rec=msg->custom_mode;
+    ROS_INFO("Current mode is %s",status_rec);
 }
 
 int main(int argc,char **argv)
@@ -32,7 +35,7 @@ int main(int argc,char **argv)
     ros::Rate loop_rate(1);
 
     ros::Nodehandle n_rec;
-    receiver=n_rec.subsricbe("mavros/",1000,rec_func);
+    receiver=n_rec.subsricbe("mode_state",1000,rec_func);
 
     while(ros::ok())
     {

@@ -14,7 +14,7 @@ ros::Subscriber mode_sub;
 bool mode_change(mavros_msgs::SetMode::Request &req,mavros_msgs::SetMode::Response &res)
 {
     uint8_t base_mode=req.base_mode;
-    std:string custom_mode=req.custom_mode;
+    std::string custom_mode=req.custom_mode;
     
     mavlink_message_t msg;
     mavlink_msg_set_mode_pack(1,0,base_mode,custom_mode,c_str());
